@@ -1,0 +1,51 @@
+{% extends 'base.index.html.twig' %}
+
+{% block title %}
+    WELCOME
+{% endblock %}
+{% block stylesheets %}
+    <meta name="robots" content="Currently in 2nd year of a Master's degree in Business Intelligence, I hold a Bachelor's degree in Computer Engineering. I am passionate about IT and constantly looking for new experiences. I have an interest in the fields of BI, data science and am considering a career in it."/>
+    <meta name="publisher" content="Oscar mugiraneza">
+    <meta name="author" content="Oscar mugiraneza">
+    <meta name="keywords" content="mugiraneza, CSS, JavaScript,C#(ASP.NET),SQL SERVER,TRANSACT SQL,PLSQL,UML/MERISE,JAVA,PHP,SYMFONY,JQUERY,TYPESCRIPT,MYSQL,ANGULAR,POSTEGRE,LINUX,NODEJS">
+    <meta name="description" content="Currently in 2nd year of a Master's degree in Business Intelligence, I hold a Bachelor's degree in Computer Engineering. I am passionate about IT and constantly looking for new experiences. I have an interest in the fields of BI, data science and am considering a career in it."/>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{asset('css/aos.css')}}" rel="stylesheet">
+    <link rel="icon" href="{{asset('favicon.ico')}}" />
+    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('styles/main.css')}}" rel="stylesheet">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-173026432-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-173026432-1');
+    </script>
+{% endblock %}
+
+{% block employe %}
+    {% for element in employee %}
+        <div class="card">
+            <div class="row">
+                <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
+                    <div class="card-body cc-experience-header">
+                        <div class="h5">{{ element.nom|upper ~' '~ element.prenom|capitalize }}</div>
+                    </div>
+                </div>
+                <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
+                    <div class="card-body">
+                        <div class="h5">{{ element.profession}}</div>
+                        <p>{{ element.adresse}}</p>
+                        <a class="btn btn-primary smooth-scroll mr-2" href="{{ path('edit_personne',{'id':element.id}) }}" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Modifier</a>
+                        <a class="btn btn-primary smooth-scroll mr-2" href="{{ path('personnes',{'id':element.id}) }}" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">voir</a>
+                        <a class="btn btn-primary" href="{{asset('uploads/logo/'~element.cvpdf)}}" target = "_blank" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Télécharger CV</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock %}

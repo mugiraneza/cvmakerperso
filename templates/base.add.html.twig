@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body id="top">
+        <div class="h4 text-center mb-4 title">
+            <a class="btn btn-primary" href="{{ path('listes_personne') }}" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Retour</a>
+        </div>
+        {% block employe %}
+
+        {% endblock %}
+    </div>
+
+    <script src="{{asset('js/core/jquery.3.2.1.min.js') }}"></script>
+    <script src="{{asset('js/core/popper.min.js')}}"></script>
+    <script src="{{asset('js/core/bootstrap.min.js')}}"></script>
+    <script src="{{asset('js/now-ui-kit.js?v=1.1.0')}}"></script>
+    <script src="{{asset('js/aos.js')}}"></script>
+    <script src="{{asset('scripts/main.js')}}"></script>
+    </body>
+</html>
